@@ -1,5 +1,5 @@
 <!-- 네비게이션 바 -->
-    <div class="mix">
+    
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header menuitem">
@@ -81,138 +81,225 @@
         </div>
       </div>
     </nav>
-    </div>
+    <
     
     
-<!--게시판 포스트-->
+<!-- side menu-->    
+    
 <div class="container">
-    <h2>실시간 대학교</h2>
     <div class="row">
-        <div class="form-group">
-            <div class="items-collection">
-
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-car fa-2x"></span>
-                                    <h5>연세대</h5>
-                                </div>
-                            </label>
-                        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-plus"></span> Content</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span> <a>Blogs</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-minus text-primary"></span> <a>Edit Blog</a></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-minus text-success"></span> <a>Publish Blog</a></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-minus text-warning"></span> <a>Delete Blog</a></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item"><span class="glyphicon glyphicon-edit text-success"></span> <a>Contact us</a></li>
+                            <li class="list-group-item"><span class="glyphicon glyphicon-share-alt text-info"></span> <a>Share</a></li>
+                            <li class="list-group-item"><span class="glyphicon glyphicon-bell text-success"></span> <a>Users online</a><span class="badge">7</span></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-truck fa-2x"></span>
-                                    <h5>고려대</h5>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Menu Information</h3>
+                </div>
+                <div class="panel-body">                    
+                    <div class="alert alert-success">
+                        <h3>
+                        
+                        <!--게시판 포스트-->
+                          
+                                <h2>실시간 대학교</h2>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="items-collection">
+                            
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-car fa-2x"></span>
+                                                                <h5>연세대</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-truck fa-2x"></span>
+                                                                <h5>고려대</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-laptop fa-2x"></span>
+                                                                <h5>인하대</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-cube fa-2x"></span>
+                                                                <h5>숙명여대</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-lock fa-2x"></span>
+                                                                <h5>secure</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-barcode fa-2x"></span>
+                                                                <h5>barcode</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-key fa-2x"></span>
+                                                                <h5>key</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                
+                                            <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                <div class="info-block block-info clearfix">
+                                                    <div data-toggle="buttons" class="btn-group itemcontent">
+                                                        <label class="btn btn-default">
+                                                            <div class="itemcontent">
+                                                                <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                                <span class="fa fa-keyboard-o fa-2x"></span>
+                                                                <h5>keyboard</h5>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>                
+                            
+                                        </div>
+                                    </div>
                                 </div>
-                            </label>
-                        </div>
+                                <div class="row">
+                                    <br>
+                                    <div class="form-group">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">                
+                                            <i class="fa fa-search fa-2x pull-left searchicon"></i><input type="search" class="form-control" id="search" placeholder="Filter items...">
+                                        </div>
+                                    </div>
+                                </div>    
+                                                   
+                        </h3>
                     </div>
                 </div>
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-laptop fa-2x"></span>
-                                    <h5>인하대</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-cube fa-2x"></span>
-                                    <h5>숙명여대</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-lock fa-2x"></span>
-                                    <h5>secure</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>                
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-barcode fa-2x"></span>
-                                    <h5>barcode</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>                
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-key fa-2x"></span>
-                                    <h5>key</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>                
-                <div class="items col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                    <div class="info-block block-info clearfix">
-                        <div data-toggle="buttons" class="btn-group itemcontent">
-                            <label class="btn btn-default">
-                                <div class="itemcontent">
-                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-                                    <span class="fa fa-keyboard-o fa-2x"></span>
-                                    <h5>keyboard</h5>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>                
-
             </div>
         </div>
     </div>
-    <div class="row">
-        <br>
-        <div class="form-group">
-            <div class="col-sm-12 col-md-12 col-lg-12">                
-                <i class="fa fa-search fa-2x pull-left searchicon"></i><input type="search" class="form-control" id="search" placeholder="Filter items...">
-            </div>
-        </div>
-    </div>    
 </div>
 
 
+    
 
 
-
+<style>
+body {
+    margin: 40px;
+}
+#accordion .glyphicon {
+    margin-right: 10px;
+}
+.panel-collapse > .list-group .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.panel-collapse > .list-group .list-group-item {
+    border-width: 1px 0;
+}
+.panel-collapse > .list-group {
+    margin-bottom: 0;
+}
+.panel-collapse .list-group-item {
+    border-radius: 0;
+}
+.panel-collapse .list-group .list-group {
+    margin: 0;
+    margin-top: 10px;
+}
+.panel-collapse .list-group-item li.list-group-item {
+    margin: 0 -15px;
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+    padding-left: 30px;
+}
+.panel-collapse .list-group-item li.list-group-item:last-child {
+    padding-bottom: 0;
+}
+.panel-collapse div.list-group div.list-group {
+    margin: 0;
+}
+.panel-collapse div.list-group .list-group a.list-group-item {
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+    padding-left: 30px;
+}
+</style>    
 
 
 <style>
