@@ -13,7 +13,14 @@
           </ul>
         </div>
         <div>  <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            
+
+    
+<% unless current_user.nil? %>
+
+
+                 
+<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="fa fa-gift bigicon"></span> 4 - Items in Cart<span class="caret"></span></a>
               <ul class="dropdown-menu dropdown-cart" role="menu">
                   <li>
@@ -73,67 +80,22 @@
                     </span>
                   </li>              
                   <li class="divider"></li>
-                  <li><a class="text-center" href="#">View Cart</a></li>
+                  <%= link_to "로그아웃", destroy_user_session_path, method:'get' %>
+                 
+                  
               </ul>
             </li>
-          </ul>
+          </ul>                 
+                  
+                 
+<% else %>
+
+<%= link_to "로그인", user_session_path, method: 'post' %>
+<%= link_to "회원가입", new_user_registration_path, method: 'get' %>
+
+<% end %>
+
         </div>
       </div>
     </nav>
     </div>
-    
-    <style>
-    .bigicon {    
-        color:white;
-    }
-    
-    .mix{
-        min-height:370px;
-    }
-    
-    ul.dropdown-cart{
-        min-width:250px;
-        border: 2px solid #343434;
-        padding: 2px;
-        margin: 7px;
-        margin-top: 11px;
-    }
-    ul.dropdown-cart li .item{
-        display:block;
-        padding:3px 10px;
-        margin: 3px 0;
-        
-    }
-    ul.dropdown-cart li .item:hover{
-        background-color:#c3c5c5;
-        
-    }
-    ul.dropdown-cart li .item:after{
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
-    }
-    
-    ul.dropdown-cart li .item-left{
-        float:left;
-    }
-    ul.dropdown-cart li .item-left img,
-    ul.dropdown-cart li .item-left span.item-info{
-        float:left;
-    }
-    ul.dropdown-cart li .item-left span.item-info{
-        margin-left:10px;   
-    }
-    ul.dropdown-cart li .item-left span.item-info span{
-        display:block;
-    }
-    ul.dropdown-cart li .item-right{
-        float:right;
-    }
-    ul.dropdown-cart li .item-right button{
-        margin-top:14px;
-    }   
-    </style>
