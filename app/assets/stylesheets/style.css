@@ -188,7 +188,7 @@ hr {
 }
 
 .mb {
-	margin-bottom: 25px;
+	margin-bottom: 0px;
 }
 
 .ml {
@@ -419,10 +419,20 @@ ul.sidebar-menu li a.active i {
 
 .wrapper {
     display: inline-block;
-    margin-top: 60px;
+    margin-top: 30px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width: 100%;
+}
+
+.wrapper2 {
+    display: inline-block;
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
     padding-top: 0px;
     width: 100%;
 }
@@ -831,8 +841,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 /* LINE ICONS CONFIGURATION */
 
 .mtbox {
-	margin-top: 80px;
-	margin-bottom: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .box1 {
@@ -873,6 +883,12 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 /* MAIN CHART CONFIGURATION */
 .main-chart {
 	padding-top: 20px;
+}
+
+.main-chart2 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .mleft {
@@ -985,7 +1001,7 @@ PANELS CONFIGURATIONS
 /*Panel Size*/
 
 .pn {
-	height: 250px;
+	height: 130px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
