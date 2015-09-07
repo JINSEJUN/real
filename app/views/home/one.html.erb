@@ -118,22 +118,26 @@
                             
                     	
                     
-                  	<div class="row mtbox">
-                  	    
-                  	    
-                  	    
+    	<div class="row mtbox">
+                  	   	    
                   	    
 					<% @posts2.reverse.each do |x| %>
 
-            
-                <div class="container row">
-                    <div class="col-md-9">
-                <a href="/five/read/<%=x.id%>"> <%= x.univ %> / <%= x.sex %> / <%= x.number %> / <%= x.post_univ %>에서 <%= x.post_univ_other %>에 봐요~  </a>
-                    </div>
-                    <div class="col-md-3">
+            <div class="col-md-4 mb">
+							<!-- WHITE PANEL - TOP USER -->
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h5><%= x.univ %></h5>
+								</div>
+								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
+								<p><b><%= x.post_univ %> / <%= x.number %></b></p>
+								
+							</div>
+			      </div>
                 
-                    </div>
-                </div>
+                <a href="/five/read/<%=x.id%>"> <%= x.univ %> / <%= x.sex %> / <%= x.number %> / <%= x.post_univ %>에서 <%= x.post_univ_other %>에 봐요~  </a>
+                    
+      </div>
             </form> <br>
 
             <% end %>

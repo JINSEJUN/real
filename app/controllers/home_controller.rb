@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def two
-    
+    @posts2 = Post.all    
     
   end
 
@@ -12,6 +12,10 @@ class HomeController < ApplicationController
   end
   
   def goo
+    
+  end
+  
+  def test1
     
   end
 end

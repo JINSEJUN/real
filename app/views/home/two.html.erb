@@ -6,7 +6,7 @@
             <!--logo start-->
             <a href="index.html" class="logo"><b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
             <!--logo end-->
-                
+            <% if current_user.nil? %>    
             <div class="top-menu row pull-right" style="margin-top:5px; text-align:right">
             	
             	<form class="form-inline" action="/users/sign_in" method="POST">
@@ -26,8 +26,13 @@
                       <button type="submit" class="btn btn-default">Sign in</button>
                 </form>
                 <a href="/users/sign_up">혹시 처음이신가요?</a>
-            	
-            	
+            <% else %>	
+            	<div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/users/sign_out">Logout</a></li>
+            	</ul>
+            <% end %>	
+            </div>
             </div>
         </header>
       <!--header end-->
@@ -41,6 +46,11 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
+              <% unless current_user.nil? %>
+              	  <p class="centered"><a href="profile.html"><img src="assets/인하대 로고.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered"><small>환영합니다</small> 장석준<small>님</small></h5>
+              	  
+              <% end %>
               	 
               	  <div>
               	  <p style="text-align:center">대학교 검색</p>
@@ -112,7 +122,7 @@
             
             
             
-            
+<% if current_user.nil? %>
             
 <section id="main-content" style="height:230px">
           <section class="wrapper" style="height:250px">
@@ -156,3 +166,144 @@
 
       </footer>
       <!--footer end-->
+<% else %>
+
+<section id="main-content" style="height:230px">
+          <section class="wrapper" style="height:250px">
+
+              <div class="row">
+                  <div class="col-lg-10 main-chart" style="height:250;">
+                     <div class="row col-lg-10"><br>
+                     
+                       <form action="/home/post" method="POST">
+                          <input class="btn btn-primary" type="submit" value="만남 적기"> <br> <br>
+                       </form>
+                     
+                       <h3>최근 올라온 미팅 리스트</h3>
+                     </div>
+                     <div class="col-lg-2"><br>
+                       <h3>더보기</h3>
+                    	</div>
+                            
+                    	
+                    
+    	<div class="row mtbox">
+                  	   	    
+                  	    
+					<% @posts2.reverse.each do |x| %>
+
+            <div class="col-md-4 mb">
+							<!-- WHITE PANEL - TOP USER -->
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h5><%= x.univ %></h5>
+								</div>
+								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
+								<p><b><%= x.post_univ %> / <%= x.number %></b></p>
+								
+							</div>
+			      </div>
+                
+                <a href="/five/read/<%=x.id%>"> <%= x.univ %> / <%= x.sex %> / <%= x.number %> / <%= x.post_univ %>에서 <%= x.post_univ_other %>에 봐요~  </a>
+                    
+      </div>
+            </form> <br>
+
+            <% end %>
+           
+ 
+      
+            <br>
+                
+              
+              
+
+
+
+
+
+              </div><! --/row -->
+              
+              
+              
+          </section>
+      </section>
+
+      <!--main content end-->
+      
+      <section id="main-content" style="height:230px">
+          <section class="wrapper2" style="height:250px">
+
+              <div class="row">
+                  <div class="col-lg-10 main-chart" style="height:250">
+                    <div class="row col-lg-10">
+                       <h3>우리학교 미팅 리스트</h3>
+                     </div>
+                     <div class="col-lg-2">
+                       <h3>더보기</h3>
+                    	</div>
+                  	<div class="row mtbox" style="height:160px">
+                  	    
+					<% for i in 0..2 %>	
+						<div class="col-md-4 mb">
+							<!-- WHITE PANEL - TOP USER -->
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h5>인하대</h5>
+								</div>
+								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
+								<p><b>인하대후문 4명</b></p>
+								
+							</div>
+			      </div>
+			            
+			      <% end %>   
+
+              </div><! --/row -->
+              
+              
+              
+          </section>
+      </section>
+      
+      <section id="main-content" style="height:230px">
+          <section class="wrapper2" style="height:250px">
+
+              <div class="row">
+                  <div class="col-lg-10 main-chart2" style="height:250">
+                    <div class="row col-lg-10">
+                       <h3>내 활동 로그</h3>
+                     </div>
+                     <div class="col-lg-2">
+                       <h3>더보기</h3>
+                    	</div>
+                  	<div class="row mtbox" style="height:160px">
+                  	    
+					<% for i in 0..3 %>	
+						<div class="col-md-3 mb">
+							<!-- WHITE PANEL - TOP USER -->
+							<div class="white-panel pn">
+								<div class="white-header">
+									<h5>인하대</h5>
+								</div>
+								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
+								<p><b>인하대후문 3명</b></p>
+								
+							</div>
+			            </div>
+			            
+			      <% end %>   
+
+              </div><! --/row -->
+              
+              
+              
+          </section>
+      </section>
+
+      
+
+      </footer>
+      <!--footer end-->
+
+<% end %>
