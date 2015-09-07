@@ -104,10 +104,15 @@
 
               <div class="row">
                   <div class="col-lg-10 main-chart" style="height:250;">
-                     <div class="row col-lg-10">
+                     <div class="row col-lg-10"><br>
+                     
+                       <form action="/home/post" method="POST">
+                          <input class="btn btn-primary" type="submit" value="만남 적기"> <br> <br>
+                       </form>
+                     
                        <h3>최근 올라온 미팅 리스트</h3>
                      </div>
-                     <div class="col-lg-2">
+                     <div class="col-lg-2"><br>
                        <h3>더보기</h3>
                     	</div>
                             
@@ -115,20 +120,34 @@
                     
                   	<div class="row mtbox">
                   	    
-					<% for i in 0..2 %>	
-						<div class="col-md-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 2명</b></p>
-								
-							</div>
-			            </div>
-			            
-			      <% end %>   
+                  	    
+                  	    
+                  	    
+					<% @posts2.reverse.each do |x| %>
+
+            
+                <div class="container row">
+                    <div class="col-md-9">
+                <a href="/five/read/<%=x.id%>"> <%= x.univ %> / <%= x.sex %> / <%= x.number %> / <%= x.post_univ %>에서 <%= x.post_univ_other %>에 봐요~  </a>
+                    </div>
+                    <div class="col-md-3">
+                
+                    </div>
+                </div>
+            </form> <br>
+
+            <% end %>
+           
+ 
+      
+            <br>
+                
+              
+              
+
+
+
+
 
               </div><! --/row -->
               
@@ -163,7 +182,7 @@
 								<p><b>인하대후문 4명</b></p>
 								
 							</div>
-			            </div>
+			      </div>
 			            
 			      <% end %>   
 
