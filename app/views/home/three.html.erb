@@ -146,11 +146,13 @@
                 <!--  notification end -->
             </div>
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
+            	<ul class="nav pull-right top-menu" id = "good">
                     <li><a class="logout" href="login.html">Logout</a></li>
             	</ul>
             </div>
         </header>
+        
+        
         
         
         
@@ -442,3 +444,27 @@ $(function () {
 =======
     </div>
 >>>>>>> aa9712d4ac292ffd7079c489db11ba5a3ac0f8e9
+
+<br>
+<button class="good">이거</button>
+        <script>
+$(document).ready(function(){
+        $(".good").click(function(){
+           alert("stop!"); 
+        });
+    });
+    
+</script>
+
+
+<script>
+
+
+$(document).ready(function(){
+    $("p").click(function(){
+        alert("The paragraph was clicked.");
+    });
+});
+</script>
+
+<p>Click on this paragraph.</p>
