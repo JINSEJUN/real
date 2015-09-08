@@ -5,14 +5,9 @@ class CreatePosts < ActiveRecord::Migration
       t.string :email
       t.string :sex
       t.string :univ
-      t.string :post_univ
-      t.string :post_univ_other
+      t.string :place
       t.string :number
-      t.string :post_password
-      t.text :post_content
-      
-      t.string :passwd_check
-      
+      t.text :content
 
       t.timestamps null: false
     end

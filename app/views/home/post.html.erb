@@ -1,12 +1,10 @@
 <h1>만남 정보를 적어주세요</h1> <br>
 <div class="container form-group" style="text-align:center;">    
-    <form action="/five/write" method="POST">
+    <form action="/home/write" method="POST">
         <input type="hidden" class="form-control" value="<%= current_user.email %>" name="email" readonly> <br>
-        <input type="hidden" class="form-control" value="<%= current_user.univ %>" name="search" readonly> <br>
         <input type="hidden" class="form-control" value="<%= current_user.sex %>" name="sex" readonly> <br>
-        <input type="text" class="form-control" name="univ" placeholder="만날 장소를 적어주세요(ex) 연세대 입구)"><br>
-        
-        <input type="text" name="univ_other" class="form-control" placeholder="만날 시간을 적어주세요(ex) 22일 저녁7시)"><br>
+        <input type="hidden" class="form-control" value="<%= current_user.univ %>" name="univ" readonly> <br>
+        <input type="text" class="form-control" name="place" placeholder="만날 장소를 적어주세요(ex) 연세대 입구)"><br>
         <input type="text" name="number" class="form-control" placeholder="몇명이 참여하는지 적어주세요(ex) 3명)"><br>
         <textarea rows="4" cols="50" class="form-control" name="content"> </textarea><br>
     
@@ -17,3 +15,12 @@
         </div>
     </form>
 </div>
+
+
+
+      t.string :email
+      t.string :sex
+      t.string :univ
+      t.string :place
+      t.string :number
+      t.text :content

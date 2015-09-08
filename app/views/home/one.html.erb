@@ -219,16 +219,14 @@ $(function () {
 							<!-- WHITE PANEL - TOP USER -->
 							<div class="white-panel pn">
 								<div class="white-header">
-									<h5><%= x.univ %></h5>
+									<h5><%= x.univ %> / <%= x.sex %></h5>
 								</div>
 								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b><%= x.post_univ %> / <%= x.number %></b></p>
+								<p><b><%= x.place %> / <%= x.number %></b></p>
 								
 							</div>
 			      </div>
-                
-                <a href="/five/read/<%=x.id%>"> <%= x.univ %> / <%= x.sex %> / <%= x.number %> / <%= x.post_univ %>에서 <%= x.post_univ_other %>에 봐요~  </a>
-                    
+
       </div>
             </form> <br>
 
@@ -253,76 +251,7 @@ $(function () {
       </section>
 
       <!--main content end-->
-      
-      <section id="main-content" style="height:230px">
-          <section class="wrapper2" style="height:250px">
-
-              <div class="row">
-                  <div class="col-lg-10 main-chart" style="height:250">
-                    <div class="row col-lg-10">
-                       <h3>우리학교 미팅 리스트</h3>
-                     </div>
-                     <div class="col-lg-2">
-                       <h3>더보기</h3>
-                    	</div>
-                  	<div class="row mtbox" style="height:160px">
-                  	    
-					<% for i in 0..2 %>	
-						<div class="col-md-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 4명</b></p>
-								
-							</div>
-			      </div>
-			            
-			      <% end %>   
-
-              </div><! --/row -->
-              
-              
-              
-          </section>
-      </section>
-      
-      <section id="main-content" style="height:230px">
-          <section class="wrapper2" style="height:250px">
-
-              <div class="row">
-                  <div class="col-lg-10 main-chart2" style="height:250">
-                    <div class="row col-lg-10">
-                       <h3>내 활동 로그</h3>
-                     </div>
-                     <div class="col-lg-2">
-                       <h3>더보기</h3>
-                    	</div>
-                  	<div class="row mtbox" style="height:160px">
-                  	    
-					<% for i in 0..3 %>	
-						<div class="col-md-3 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 3명</b></p>
-								
-							</div>
-			            </div>
-			            
-			      <% end %>   
-
-              </div><! --/row -->
-              
-              
-              
-          </section>
-      </section>
+     
 
       
 

@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       
-      #추가내용
+      ## 만든거
       t.string :img,                null: false, default: ""
       t.string :sex,                null: false, default: ""
       t.string :age,                null: false, default: ""

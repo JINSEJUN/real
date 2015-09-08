@@ -9,14 +9,16 @@
             <% if current_user.nil? %>    
             <div class="top-menu row pull-right" style="margin-top:5px; text-align:right">
             	
-            	<form class="form-inline" action="/users/sign_in" method="POST">
+
+            	
+            	<form class="form-inline" action="/home/check" method="POST">
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        <input type="email" class="form-control" name="login_user" placeholder="Email">
                       </div>
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputPassword3">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                        <input type="password" class="form-control" id="login_password" placeholder="Password">
                       </div>
                       <div class="checkbox">
                         <label>
@@ -48,7 +50,9 @@
               
               <% unless current_user.nil? %>
               	  <p class="centered"><a href="profile.html"><img src="assets/인하대 로고.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered"><small>환영합니다</small> 장석준<small>님</small></h5>
+              	  <h5 class="centered"><small>환영합니다</small> <%=current_user.email %><small>님</small></h5>
+              	  
+              	  <%= current_user.sex %>입니다
               	  
               <% end %>
               	 
