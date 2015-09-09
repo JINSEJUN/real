@@ -1,0 +1,84 @@
+<div class="progress progress-striped active">
+  <div class="progress-bar" style="width: 45%"></div>
+</div>
+
+<h1> <%= @detail.univ %> / <%= @detail.place %> / <%= @detail.number %> </h1>
+
+<h2> <%= @detail.content %> </h2>
+
+
+<!-- 우리가 우선 컨트롤러에 @reply = Reply.find([:id])로 받아준다음에, @reply.email하면 될거같은데 그치? -->
+
+
+
+
+<% b = 33 %>
+<% a = 1 %>
+<% @detail.replies.each do |x| %>    
+
+    <%= x.email %> : <%= x.content %>
+ 
+    <% if current_user.email == @detail.email %>
+         <button id="<%=a%>">번호 보기</button>
+        <p id="<%=b%>" style="display:none;"><%= x.user.number %></p>
+
+    <% end %>
+    
+    <script>
+
+        
+
+    $(document).ready(function(){
+
+       $('#'+'<%=a%>').click(function(){
+           $('#'+'<%=b%>').fadeIn('slow');
+           $('#'+'<%=a%>').fadeOut('slow');
+       })
+      
+    });
+    
+    </script>
+    
+    
+    <% if current_user.email == x.email %> 
+     <a href="/home/delete2/<%= x.id %>"> 삭제 </a>
+    
+    <% end %>
+    <br>
+<%a = a + 1;%>
+<%b = b  + 1; %>
+<% end %>
+
+
+<!-- post_id > 4면 밑에부분이 안보이도록만 해주면서 마감되었습니다를 넣어주면 될거같애 -->
+
+<!-- 리플쓴 사람 email찾아 == 현재 로그인한 사람 email(current_user.email) 이면 이미 등록하셨습니다를 넣어주자 -->
+
+
+<% if @detail.replies.count < 3 %>
+
+    <form action="/home/write_reply" method="POST">
+        <input type="hidden" name="email" value="<%= current_user.email %>">
+        <input type="hidden" name="post_id" value="<%=@detail.id%>">
+
+        <input type="text" name="myreply">
+        <input type="submit" value="리플달기">
+    </form>
+<% else %>
+
+    <h1> 선착순 댓글이 모두 완료되었습니다. </h1>
+    
+<% end %>
+
+
+<a href="/"> 돌아가기 </a> &nbsp
+
+
+<% if current_user.email == @detail.email %>
+
+<a href="/home/modify2/<%=@detail.id%>"> 수정 </a> &nbsp
+<a href="/home/delete/<%=@detail.id%>"> 삭제 </a>
+
+<% end %>
+
+

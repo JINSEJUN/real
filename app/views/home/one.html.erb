@@ -215,7 +215,7 @@ $(function () {
                   	    
 					<% @posts2.reverse.each do |x| %>
 
-            <div class="col-md-4 mb">
+            <a href="/home/reply/<%=x.id%>" method="POST"><div class="col-md-4 mb">
 							<!-- WHITE PANEL - TOP USER -->
 							<div class="white-panel pn">
 								<div class="white-header">
@@ -225,7 +225,8 @@ $(function () {
 								<p><b><%= x.place %> / <%= x.number %></b></p>
 								
 							</div>
-			      </div>
+			      </div> </a>
+
 
       </div>
             </form> <br>

@@ -31,12 +31,10 @@ class HomeController < ApplicationController
      redirect_to '/home/one'
   
   def reply
-    @posts2 = Post.all
+      @detail = Post.find(params[:id]) 
+      
   end
-  
-  
-  
-  
+
   
   def write_reply
     # 해당 게시물의 댓글들의 이메일들 중 하나가 내 이메일이랑 일치했을 때 
@@ -51,7 +49,7 @@ class HomeController < ApplicationController
         else
             #나중에 자바스크립트 alert넣어주기!(이미 댓글을 등록하셨습니다)
         end
-      redirect_to '/home/one'
+      redirect_to(:back)
   end
     
     
