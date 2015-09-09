@@ -6,7 +6,11 @@
             <!--logo start-->
             <a href="index.html" class="logo"><b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
             <!--logo end-->
-                
+            
+            <a href="/home/post" method="POST"> <div class="btn btn-primary"> 만남적기 </div>
+            
+            
+         
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="login.html">Logout</a></li>
@@ -89,59 +93,41 @@ $(function () {
           <section class="wrapper" style="height:250px">
 
               <div class="row">
-                  <div class="col-lg-10 main-chart" style="height:250;">
+                  <div class="col-lg-12 main-chart" style="height:250;">
                      <div class="row col-lg-10"><br>
                      
-                       <form action="/home/post" method="POST">
-                          <input class="btn btn-primary" type="submit" value="만남 적기"> <br> <br>
-                       </form>
-                     
+                       
+                     <br>
                        <h3>최근 올라온 미팅 리스트</h3>
                      </div>
-                     <div class="col-lg-2"><br>
-                       <h3>더보기</h3>
-                    	</div>
-                            
+                     <br><br>
+                            <div class="container">
+
                     	
-                    
+        
     	<div class="row">	    
 		<% @posts2.reverse.each do |x| %>
-			<a href="/home/reply/<%=x.id%>" method="POST">		
+
+			<a href="/home/reply/<%=x.id%>" method="POST">	
+			
                 <div class="col-lg-4 col-md-4 col-sm-4 mb">
             		<!-- WHITE PANEL - TOP USER -->
             		<div class="white-panel pn">
             			<div class="white-header">
             				<h5><%= x.univ %> / <%= x.sex %></h5>
             			</div>
-            			<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="50"></p>
-            			<p><b>Zac Snider</b></p>
-            				<div class="row">
-            					<div class="col-md-6">
-            						<p class="small mt"><%= x.place %></p>
-            						<p>2012</p>
-            					</div>
-            					<div class="col-md-6">
-            						<p class="small mt"><%= x.number %></p>
-            						<p>$ 47,60</p>
-            					</div>
-            				</div>
+            			<p><%= x.place %> / <%= x.number %></p>
+            			<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
+            		
             		</div>
+            		<br>
             	</div><!-- /col-md-4 -->
             </a>
         <% end %>      
       </div>
-           
- 
       
             <br>
-                
-              
-              
-
-
-
-
-
+  
               </div><! --/row -->
               
               
@@ -150,9 +136,7 @@ $(function () {
       </section>
 
       <!--main content end-->
-     
-
-      
-
+    
       </footer>
       <!--footer end-->
+      

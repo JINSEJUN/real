@@ -4,12 +4,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
+            <a href="/home/two" class="logo"><b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
             
             <!--logo end-->
             
             <% if current_user.nil? %>    
-            <div class="top-menu row pull-right" style="margin-top:5px; text-align:right">
+            <div class="top-menu row pull-right" style="margin-top:0px; text-align:right">
 
 
 <form class="new_user navbar-form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="nmI9PI3D3rqX4ir864hJDqEU2RXIabk5ZuzTEIl1+J0eRWL0wrUTL9q8qfVUWfgpSZ/x9gf9RcFPwo0bjhGGJg==">
@@ -53,10 +53,10 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               <% unless current_user.nil? %>
-              	  <p class="centered"><a href="profile.html"><img src="assets/인하대 로고.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="profile.html"><img src="assets/<%=current_user.univ %>.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><small>환영합니다</small> <%=current_user.email %><small>님</small></h5>
               	  
-              	  <%= current_user.sex %>입니다
+              	  
               	  
               <% end %>
               	 
@@ -75,7 +75,12 @@
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
-                                    <h5>연세대</h5>
+                                    <div class="btn-group-vertical" role="group" aria-label="...">
+                                            <form action="/home/three" method="POST">  
+                                                  <input type="hidden" name="search" value="연세대학교">
+                                                  <input type="submit" value="연세대학교">
+                                              </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -83,14 +88,20 @@
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
-                                    <h5>고려대</h5>
+                                            <form action="/home/three" method="POST">  
+                                                  <input type="hidden" name="search" value="인하대학교">
+                                                  <input type="submit" value="인하대학교">
+                                              </form>
                                 </div>
                             </div>
                         </div> <div class="items2">
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
-                                    <h5>한양대</h5>
+                                            <form action="/home/three" method="POST">  
+                                                  <input type="hidden" name="search" value="이화여자대학교">
+                                                  <input type="submit" value="이화여자대학교">
+                                              </form>
                                 </div>
                             </div>
                         </div>
@@ -121,30 +132,36 @@ $(function () {
           <section class="wrapper" style="height:250px">
 
               <div class="row">
-                  <div class="col-lg-10 main-chart" style="height:250;">
-                     <div class="row col-lg-10">
-                       <h3>최근 올라온 미팅 리스트</h3>
-                     </div>
+                  <div class="col-lg-12 main-chart" style="height:250;">
+                     <div class="row col-lg-10"><br>
                      
-                            
+                       
+<div class="container" style="text-align:center">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">만남적기</button>
+
+                           
                     	
                     
                   	<div class="row mtbox">
                   	    
-					<% for i in 0..8 %>	
-						<div class="col-md-4 mb goodd" style="height:170px">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 2명</b></p>
-								
-							</div>
-			            </div>
-			            
-			      <% end %>   
+					<% @posts2.reverse.each do |x| %>
+		
+            			<a href="/home/reply/<%=x.id%>" method="POST">		
+                            <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                        		<!-- WHITE PANEL - TOP USER -->
+                        		<div class="white-panel pn">
+                        			<div class="white-header">
+                        				<h5><%= x.univ %> / <%= x.sex %></h5>
+                        			</div>
+                        			<p><%= x.place %> / <%= x.number %></p>
+                        			<p><img src="/assets/<%= x.univ %>.jpg" class="img-circle" width="40"></p>
+                        		
+                        		</div>
+                        		<br>
+                        	</div><!-- /col-md-4 -->
+                        </a>
+                    <% end %> 
 
               </div><! --/row -->
               
@@ -173,7 +190,7 @@ $(function () {
           <section class="wrapper" style="height:250px">
 
               <div class="row">
-                  <div class="col-lg-10 main-chart" style="height:250;">
+                  <div class="col-lg-12 main-chart" style="height:250;">
                      <div class="row col-lg-10"><br>
                      
                        
@@ -226,122 +243,42 @@ $(function () {
                      
                        <h3>최근 올라온 미팅 리스트</h3>
                      </div>
-                     <div class="col-lg-2"><br>
-                       <h3>더보기</h3>
-                    	</div>
+                     
                             
                     	
                     
-    	<div class="row mtbox">
-                  	   	    
-                  	    
-					<% @posts2.reverse.each do |x| %>
+    	<div class="row">	    
+		<% @posts2.reverse.each do |x| %>
+		
+			<a href="/home/reply/<%=x.id%>" method="POST">		
+                <div class="col-lg-4 col-md-4 col-sm-4 mb">
+            		<!-- WHITE PANEL - TOP USER -->
+            		<div class="white-panel pn">
+            			<div class="white-header">
+            				<h5><%= x.univ %> / <%= x.sex %></h5>
+            			</div>
+            			<p><%= x.place %> / <%= x.number %></p>
+            			<p><img src="/assets/<%= x.univ %>.jpg" class="img-circle" width="40"></p>
+            		
+            		</div>
+            		<br>
+            	</div><!-- /col-md-4 -->
+            </a>
+        <% end %>      
+        
+        
 
-            <div class="col-md-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5><%= x.univ %></h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								
-								
-							</div>
-			      </div>
-
-
-            <% end %>
-           
- 
+        
+        
+      </div>
+              
+              
+              
+              
+              
+              
+              
       
-            <br>
-                
-              
-              
-
-
-
-
-
-              </div><! --/row -->
-              
-              
-              
-          </section>
-      </section>
-
-      <!--main content end-->
-      
-      <section id="main-content" style="height:230px">
-          <section class="wrapper2" style="height:250px">
-
-              <div class="row">
-                  <div class="col-lg-10 main-chart" style="height:250">
-                    <div class="row col-lg-10">
-                       <h3>우리학교 미팅 리스트</h3>
-                     </div>
-                     <div class="col-lg-2">
-                       <h3>더보기</h3>
-                    	</div>
-                  	<div class="row mtbox" style="height:160px">
-                  	    
-					<% for i in 0..2 %>	
-						<div class="col-md-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 4명</b></p>
-								
-							</div>
-			      </div>
-			            
-			      <% end %>   
-
-              </div><! --/row -->
-              
-              
-              
-          </section>
-      </section>
-      
-      <section id="main-content" style="height:230px">
-          <section class="wrapper2" style="height:250px">
-
-              <div class="row">
-                  <div class="col-lg-10 main-chart2" style="height:250">
-                    <div class="row col-lg-10">
-                       <h3>내 활동 로그</h3>
-                     </div>
-                     <div class="col-lg-2">
-                       <h3>더보기</h3>
-                    	</div>
-                  	<div class="row mtbox" style="height:160px">
-                  	    
-					<% for i in 0..3 %>	
-						<div class="col-md-3 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>인하대</h5>
-								</div>
-								<p><img src="/assets/인하대 로고.jpg" class="img-circle" width="40"></p>
-								<p><b>인하대후문 3명</b></p>
-								
-							</div>
-			            </div>
-			            
-			      <% end %>   
-
-              </div><! --/row -->
-              
-              
-              
-          </section>
-      </section>
-
       
 
       </footer>

@@ -1,14 +1,18 @@
 class HomeController < ApplicationController
   def one
     @posts2 = Post.all
+  
+      
   end
 
   def two
     @posts2 = Post.all    
-    
+
   end
 
   def three
+    @posts2 = Post.all   
+    @result = Post.where(:univ => params[:search])
   end
   
   def goo
@@ -17,6 +21,7 @@ class HomeController < ApplicationController
   
   def test1
     @posts2 = Post.all
+
   end
   
   def write
@@ -28,7 +33,7 @@ class HomeController < ApplicationController
         post.number = params[:number]
         post.content = params[:content]
         post.save
-     redirect_to '/home/one'
+     redirect_to '/'
   
   def reply
       @detail = Post.find(params[:id]) 
