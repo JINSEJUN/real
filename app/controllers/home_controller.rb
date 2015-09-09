@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   end
   
   def test1
-    
+    @posts2 = Post.all
   end
   
   def write
