@@ -307,23 +307,23 @@ $(function () {
                     
                     <div class="container">
                       
-                      <div class="row field">
-                        <%= f.label :email, class:"col-lg-1" %>
-                        <%= f.email_field :email, autofocus: true, :placeholder => "e-mail을 입력해주세요", class: "col-lg-7" %>  
+                      <div class="row field form-group col-lg-9">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, autofocus: true, :placeholder => "e-mail을 입력해주세요, 대학교 이메일 계정만 허용된답니다!", class: "form-control" %>  
                       </div>
                     
                     <br>
                     
-                      <div class="row field">
-                        <%=f.label :password, class:"col-lg-1" %>
-                        <%= f.password_field :password, autocomplete: "off", :placeholder => "비밀번호(8자리이상)를 입력해주세요", class: "col-lg-7" %>
+                      <div class="row field form-group col-lg-9">
+                        <%=f.label :password %>
+                        <%= f.password_field :password, autocomplete: "off", :placeholder => "비밀번호(8자리이상)를 입력해주세요", class: "form-control" %>
                       </div>
                     
                     <br>
                     
-                      <div class="row field">
-                        <%=f.label :password_confirmation, class:"col-lg-1" %>
-                        <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "비밀번호를 확인합니다", class: "col-lg-7" %>
+                      <div class="row field form-group col-lg-9">
+                        <%=f.label :password_confirmation %>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "비밀번호를 확인합니다", class: "form-control" %>
                       </div>
                     
                     
@@ -332,45 +332,44 @@ $(function () {
                          
                          
                     <div id="radio">
-                      <div class="row field">
-                        <%=f.label :sex, class:"col-lg-1" %>
-                          <label for="radio1" class="col-lg-3"><%= f.radio_button :sex, "남자", :id=>"radio1", checked:true %>
-                          남자</label>
+                      <div class="row field btn-group col-lg-9" data-toggle="buttons-radio">
+                        <%=f.label :sex %>
+                          <%= f.radio_button :sex, "남자", :id=>"radio1", checked:true, :style=>"display:none;" %>
+                          <label for="radio1" class="col-lg-3 btn btn-primary">남자</label>
                           
-                          <label for="radio2" class="col-lg-3"><%= f.radio_button :sex, "여자", :id=>"radio2" %>
-                          여자</label>
+                          <%= f.radio_button :sex, "여자", :id=>"radio2", :style=>"display:none;" %>
+                          <label for="radio2" class="col-lg-3 btn btn-danger">여자</label>
                       </div>
                     </div>
                     
                     <br>
                       
                     
-                      <div class="row field">
-                        <%=f.label :age, class:"col-lg-1" %>
-                        <%= f.text_field :age, autofocus: true, :placeholder => "나이는 몇살인가요?(숫자만)", class: "col-lg-7" %>
+                      <div class="row field form-group col-lg-9">
+                        <%=f.label :age %>
+                        <%= f.text_field :age, autofocus: true, :placeholder => "나이는 몇살인가요?(숫자만)", class: "form-control" %>
                       </div>
                       
                     <br>
                     
-                      <div class="row field">
-                        <%=f.label :univ , class:"col-lg-1" %>
-                        <div class="col-lg-7" style="text-align:left !important; ">
-                          <%= f.select :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교']], params[:univ])%>
-                        </div>
+                      <div class="row field form-group col-lg-9">
+                        <%=f.label :univ%>
+                          <%= f.select :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교']], params[:univ]), class: "form-control" %>
+
                       </div>
                         
                       <br>
                       
-                      <div class="row field">
-                        <%= f.label :number , class:"col-lg-1" %>
-                        <%= f.text_field :number, autofocus: true, :placeholder => "연락처를 입력해주세요", class: "col-lg-7" %>
+                      <div class="row field form-group col-lg-9">
+                        <%= f.label :number%>
+                        <%= f.text_field :number, autofocus: true, :placeholder => "연락처를 입력해주세요", class: "form-control" %>
                       </div>
                       
                       <br>
                       
-                      <div class="row field">
-                        <%= f.label :Face_img , class:"col-lg-1" %>
-                        <%= f.file_field :img, autofocus: true,  class: "col-lg-7" %>
+                      <div class="row field form-group col-lg-9">
+                        <%= f.label :Face_img%>
+                        <%= f.file_field :img, autofocus: true %>
                       </div>
                         
                       <!-- END -->
@@ -378,7 +377,7 @@ $(function () {
                     <br>
                     
                       <div class="row actions">
-                         <%= f.submit "가입하기",class:"btn btn-lg btn-success btn-submit col-lg-8" %>  
+                         <%= f.submit "가입하기",class:"btn btn-lg btn-success btn-submit col-lg-9" %>  
                       </div>
                     <% end %>
                     </div>      
