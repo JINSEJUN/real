@@ -4,7 +4,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
+             <a href="/home/two" class="logo"><img src="/assets/오미팅로고.png" style="width:40px; height:40px;" class="img-circle">&nbsp<b>오<small>빠가</small> 미팅 <small>잡아줄게</small></b></a>
             
             <!--logo end-->
             
@@ -19,6 +19,8 @@
 
 
     <input autocomplete="off" type="password" name="user[password]" id="user_password">
+    
+    
 
       <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
       <label for="user_remember_me">Remember me</label>
@@ -53,7 +55,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               <% unless current_user.nil? %>
-              	  <p class="centered"><a href="profile.html"><img src="assets/<%=current_user.univ %>.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="profile.html"><img src="/assets/<%=current_user.univ %>.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><small>환영합니다</small> <%=current_user.email %><small>님</small></h5>
               	  
               	  

@@ -24,6 +24,22 @@ class HomeController < ApplicationController
 
   end
   
+  def test2
+    @posts2 = Post.all
+    
+  end
+  
+  def test3
+    @posts2 = Post.all
+  
+  end
+  
+    
+  def test4
+      @posts2 = Post.all    
+  
+  end
+  
   def write
     post = Post.new
         post.email = params[:email]

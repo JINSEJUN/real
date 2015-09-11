@@ -27,11 +27,10 @@
     <button type="submit" name="commit" class="btn btn-info" value="Log in"> Sign in </button>
 </form>          
             	
-            	<button type="button" class="btn-default" data-toggle="modal" data-target="#myModal2">혹시 처음이신가요?</button>
+
             	
-
-                
-
+            	
+                <a href="/users/sign_up">혹시 처음이신가요?</a>
             <% else %>
             
             	<div class="top-menu">
@@ -72,41 +71,40 @@
 
                 <div class="form-group">
                     <div class="items-collection2">
-                        
+                        <div class="items2">
+                            <div class="info-block block-info clearfix">           
+                                <div class="itemcontent">        
+                                    <span class="fa fa-car fa-2x"></span>
+                                    <div class="btn-group-vertical" role="group" aria-label="...">
+                                            <form action="/home/three" method="POST">  
+                                                  <input type="hidden" name="search" value="연세대학교"><p style="opacity:0;">연세대학교</p>
+                                                  <input type="submit" value="연세대학교">
+                                              </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                          <div class="items2">
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
                                             <form action="/home/three" method="POST">  
                                                   <input type="hidden" name="search" value="인하대학교"><p style="opacity:0;">인하대학교</p>
-                                                  <input type="submit"class="form-control" value="인하대학교">
+                                                  <input type="submit" value="인하대학교">
                                               </form>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="items2">
+                        </div> <div class="items2">
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
                                             <form action="/home/three" method="POST">  
                                                   <input type="hidden" name="search" value="이화여자대학교"><p style="opacity:0;">이화여자대학교</p>
-                                                  <input type="submit"class="form-control" value="이화여자대학교">
+                                                  <input type="submit" value="이화여자대학교">
                                               </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="items2">
-                            <div class="info-block block-info clearfix">           
-                                <div class="itemcontent">        
-                                    <span class="fa fa-car fa-2x"></span>
-                                            <form action="/home/three" method="POST">  
-                                                  <input type="hidden" name="search" value="연세대학교"><p style="opacity:0;">연세대학교</p>
-                                                  <input type="submit"class="form-control" value="연세대학교">
-                                              </form>
-                                </div>
-                            </div>
-                        </div> 
-                        
                     </div>
                 </div>
 
@@ -245,37 +243,52 @@ $(function () {
                      
                        <h3>최근 올라온 미팅 리스트</h3>
                      </div>
-                     
-                            
-                    	
-                    
-    	<div class="row">	    
-		<% @posts2.reverse.each do |x| %>
-		
-			<a href="/home/reply/<%=x.id%>" method="POST">		
-                <div class="col-lg-4 col-md-4 col-sm-4 mb">
-            		<!-- WHITE PANEL - TOP USER -->
-            		<div class="white-panel pn">
-            			<div class="white-header">
-            				<h5><%= x.univ %> / <%= x.sex %></h5>
-            			</div>
-            			<p><%= x.place %> / <%= x.number %></p>
-            			<p><img src="/assets/<%= x.univ %>.jpg" class="img-circle" width="40"></p>
-            		
-            		</div>
-            		<br>
-            	</div><!-- /col-md-4 -->
-            </a>
-        <% end %>      
-        
-        
+ 
+<div class="container">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-4 ]">
+            <div class="[ panel panel-default ] panel-google-plus">
+                <div class="dropdown">
+                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="[ glyphicon glyphicon-chevron-down ]"></span>
+                    </span>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <div class="panel-heading">
+                    <img class="[ img-circle pull-left ]" src="/assets/연세대학교.jpg" class="img-circle" width="50" alt="Mouse0270" />
+                    <h3>연세대학교 경영학과 12학번</h3>
+                    <h5><span>게시글 작성일</span> - <span>2015.9.7</span> </h5>
+                </div>
+                <div class="panel-body">
+                    <p>참여인원: 4명 / 만남장소(희망): 신촌 / 소개:저희는 모두 180^^</p>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="[ btn btn-default ]">댓글수 1개</button>
+                    <button type="button" class="[ btn btn-default ]">
+                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                    </button>
+                    <div class="input-placeholder">신청댓글을 달아주세요^^...</div>
+                </div>
+                <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="/assets/<%=current_user.univ %>.jpg" width="50" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <textarea rows="4"></textarea>
+                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
+                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        
-        
-      </div>
-              
-              
-              
               
               
               
@@ -288,110 +301,20 @@ $(function () {
 
 <% end %>
 
-  <div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-          <h4 class="modal-title">초 간단 회원가입</h4>
-        </div>
-        
-        <div class="modal-body">
-          <div class="container form-group row" style="text-align:center;">
-                
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  <%= devise_error_messages! %>
-                    
-                    <div class="container">
-                      
-                      <div class="row field">
-                        <%= f.label :email, class:"col-lg-1" %>
-                        <%= f.email_field :email, autofocus: true, :placeholder => "e-mail을 입력해주세요", class: "col-lg-7" %>  
-                      </div>
-                    
-                    <br>
-                    
-                      <div class="row field">
-                        <%=f.label :password, class:"col-lg-1" %>
-                        <%= f.password_field :password, autocomplete: "off", :placeholder => "비밀번호(8자리이상)를 입력해주세요", class: "col-lg-7" %>
-                      </div>
-                    
-                    <br>
-                    
-                      <div class="row field">
-                        <%=f.label :password_confirmation, class:"col-lg-1" %>
-                        <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "비밀번호를 확인합니다", class: "col-lg-7" %>
-                      </div>
-                    
-                    
-                    <br>
-                    <br>
-                         
-                         
-                    <div id="radio">
-                      <div class="row field">
-                        <%=f.label :sex, class:"col-lg-1" %>
-                          <label for="radio1" class="col-lg-3"><%= f.radio_button :sex, "남자", :id=>"radio1", checked:true %>
-                          남자</label>
-                          
-                          <label for="radio2" class="col-lg-3"><%= f.radio_button :sex, "여자", :id=>"radio2" %>
-                          여자</label>
-                      </div>
-                    </div>
-                    
-                    <br>
-                      
-                    
-                      <div class="row field">
-                        <%=f.label :age, class:"col-lg-1" %>
-                        <%= f.text_field :age, autofocus: true, :placeholder => "나이는 몇살인가요?(숫자만)", class: "col-lg-7" %>
-                      </div>
-                      
-                    <br>
-                    
-                      <div class="row field">
-                        <%=f.label :univ , class:"col-lg-1" %>
-                        <div class="col-lg-7" style="text-align:left !important; ">
-                          <%= f.select :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교']], params[:univ])%>
-                        </div>
-                      </div>
-                        
-                      <br>
-                      
-                      <div class="row field">
-                        <%= f.label :number , class:"col-lg-1" %>
-                        <%= f.text_field :number, autofocus: true, :placeholder => "연락처를 입력해주세요", class: "col-lg-7" %>
-                      </div>
-                      
-                      <br>
-                      
-                      <div class="row field">
-                        <%= f.label :Face_img , class:"col-lg-1" %>
-                        <%= f.file_field :img, autofocus: true,  class: "col-lg-7" %>
-                      </div>
-                        
-                      <!-- END -->
-                    <br>
-                    <br>
-                    
-                      <div class="row actions">
-                         <%= f.submit "가입하기",class:"btn btn-lg btn-success btn-submit col-lg-8" %>  
-                      </div>
-                    <% end %>
-                    </div>      
-                
 
-          </div>
-        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
