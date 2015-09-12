@@ -12,16 +12,16 @@
             <div class="top-menu row pull-right" style="margin-top:0px; text-align:right">
 
 
-<form class="new_user navbar-form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="nmI9PI3D3rqX4ir864hJDqEU2RXIabk5ZuzTEIl1+J0eRWL0wrUTL9q8qfVUWfgpSZ/x9gf9RcFPwo0bjhGGJg==">
+<form class="new_user navbar-form form-group" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="nmI9PI3D3rqX4ir864hJDqEU2RXIabk5ZuzTEIl1+J0eRWL0wrUTL9q8qfVUWfgpSZ/x9gf9RcFPwo0bjhGGJg==">
                 
-    <input autofocus="autofocus" type="email"  name="user[email]" id="user_email" preholder="email">
+    <input class="form-control" autofocus="autofocus" type="email"  name="user[email]" id="user_email" preholder="email">
 
 
 
-    <input autocomplete="off" type="password" name="user[password]" id="user_password">
+    <input class="form-control" autocomplete="off" type="password" name="user[password]" id="user_password">
 
       <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
-      <label for="user_remember_me">Remember me</label>
+      <label for="user_remember_me" class="from-control">Remember me</label>
 
 
     <button type="submit" name="commit" class="btn btn-info" value="Log in"> Sign in </button>
@@ -57,18 +57,19 @@
               	  <p class="centered"><a href="profile.html"><img src="/assets/<%=current_user.univ %>.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><small>환영합니다</small> <%=current_user.email %><small>님</small></h5>
               	  
-              	  
+              	  <%=current_user.sex %>
               	  
               <% end %>
               	 
+              	 <br>
               	  <div>
-              	  <p style="text-align:center">대학교 검색</p>
+              	  <p style="text-align:center; color:orange"><big><strong>대학교 검색</strong></big></p>
               	  </div>
   <i class="fa fa-search fa-2x pull-left searchicon"></i><input type="search" class="form-control" id="search" placeholder="Filter items...">
 
 
 
-             <h2>실시간 대학교</h2>
+             <h2 style="text-align:center">대학목록</h2>
 
                 <div class="form-group">
                     <div class="items-collection2">
@@ -137,7 +138,7 @@ $(function () {
                   <div class="col-lg-12 main-chart" style="height:250;">
                      <div class="row col-lg-10"><br>
                      
-                       
+                       <br>
 <div class="container" style="text-align:center">
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg goodd" data-toggle="modal" data-target="#myModal">만남적기</button>
@@ -296,7 +297,7 @@ $(function () {
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-          <h4 class="modal-title">초 간단 회원가입</h4>
+          <h4 class="modal-title"><img src="/assets/오미팅로고.png" style="width:40px; height:40px;" class="img-circle">&nbsp 아이엠 그라운드~  자기 소개하기!</h4>
         </div>
         
         <div class="modal-body">
@@ -308,21 +309,21 @@ $(function () {
                     <div class="container">
                       
                       <div class="row field form-group col-lg-9">
-                        <%= f.label :email %>
+                        <%= f.label :저의이메일은요 %>
                         <%= f.email_field :email, autofocus: true, :placeholder => "e-mail을 입력해주세요, 대학교 이메일 계정만 허용된답니다!", class: "form-control" %>  
                       </div>
                     
                     <br>
                     
                       <div class="row field form-group col-lg-9">
-                        <%=f.label :password %>
+                        <%=f.label :비밀번호는요 %>
                         <%= f.password_field :password, autocomplete: "off", :placeholder => "비밀번호(8자리이상)를 입력해주세요", class: "form-control" %>
                       </div>
                     
                     <br>
                     
                       <div class="row field form-group col-lg-9">
-                        <%=f.label :password_confirmation %>
+                        <%=f.label :다시비밀번호는요 %>
                         <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "비밀번호를 확인합니다", class: "form-control" %>
                       </div>
                     
@@ -332,36 +333,36 @@ $(function () {
                          
                          
                     <div id="radio">
-                      <div class="row field btn-group col-lg-9" data-toggle="buttons-radio">
-                        <%=f.label :sex %>
-                          <%= f.radio_button :sex, "남자", :id=>"radio1", checked:true, :style=>"display:none;" %>
-                          <label for="radio1" class="col-lg-3 btn btn-primary">남자</label>
+                      <div class="row field col-lg-9">
+                        <%=f.label :성별은요 %><br>
+                          <%= f.radio_button :sex, "남자", :id=>"radio1", checked:true %>
+                          <label for="radio1" class="col-lg-6">남자</label>
                           
-                          <%= f.radio_button :sex, "여자", :id=>"radio2", :style=>"display:none;" %>
-                          <label for="radio2" class="col-lg-3 btn btn-danger">여자</label>
+                          <%= f.radio_button :sex, "여자", :id=>"radio2" %>
+                          <label for="radio2" class="col-lg-6">여자</label>
                       </div>
                     </div>
                     
                     <br>
-                      
+                    <br>
                     
                       <div class="row field form-group col-lg-9">
-                        <%=f.label :age %>
+                        <%=f.label :나이는요 %>
                         <%= f.text_field :age, autofocus: true, :placeholder => "나이는 몇살인가요?(숫자만)", class: "form-control" %>
                       </div>
                       
                     <br>
                     
                       <div class="row field form-group col-lg-9">
-                        <%=f.label :univ%>
-                          <%= f.select :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교']], params[:univ]), class: "form-control" %>
+                        <%=f.label :대학교는요 %>
+                          <%= f.select( :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교']], params[:univ]),{},{class: "form-control"}) %>
 
                       </div>
                         
                       <br>
                       
                       <div class="row field form-group col-lg-9">
-                        <%= f.label :number%>
+                        <%= f.label :그리고연락처는요 %>
                         <%= f.text_field :number, autofocus: true, :placeholder => "연락처를 입력해주세요", class: "form-control" %>
                       </div>
                       
@@ -394,3 +395,8 @@ $(function () {
     </div>
   </div>
   
+        <script>
+        $(function() {
+          $( "#radio" ).buttonset();
+        });
+        </script>
