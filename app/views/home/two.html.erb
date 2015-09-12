@@ -57,8 +57,7 @@
               	  <p class="centered"><a href="profile.html"><img src="/assets/<%=current_user.univ %>.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><small>환영합니다</small> <%=current_user.email %><small>님</small></h5>
               	  
-              	  <%=current_user.sex %>
-              	  
+
               <% end %>
               	 
               	 <br>
@@ -268,22 +267,56 @@ $(function () {
             	</div><!-- /col-md-4 -->
             </a>
         <% end %>      
-        
-        
-
-        
-        
       </div>
-              
-              
-              
-              
-              
-              
-              
+     </div>  
+  </div>
+</div>
+  </section>
+</section>
       
+      <br>
       
+    
+<section id="main-content" style="height:230px">
+          <section class="wrapper" style="height:250px">
 
+              <div class="row">
+                  <div class="col-lg-12 main-chart" style="height:250;">
+                     <div class="row col-lg-10"><br>
+                     
+
+                     
+                       <h3>내 학교 목록</h3>
+                     </div>
+                     
+                            
+                    	
+                    
+    	<div class="row">	    
+		<% @mylog.reverse.each do |x| %>
+		
+			<a href="/home/reply/<%=x.id%>" method="POST">		
+                <div class="col-lg-4 col-md-4 col-sm-4 mb">
+            		<!-- WHITE PANEL - TOP USER -->
+            		<div class="white-panel pn">
+            			<div class="white-header">
+            				<h5><%= x.univ %> / <%= x.sex %></h5>
+            			</div>
+            			<p><%= x.place %> / <%= x.number %></p>
+            			<p><img src="/assets/<%= x.univ %>.jpg" class="img-circle" width="40"></p>
+            		
+            		</div>
+            		<br>
+            	</div><!-- /col-md-4 -->
+            </a>
+        <% end %>      
+      </div>
+     </div>  
+  </div>
+</div>
+  </section>
+</section>
+      
       </footer>
       <!--footer end-->
 

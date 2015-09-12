@@ -7,7 +7,9 @@ class HomeController < ApplicationController
 
   def two
     @posts2 = Post.all    
-
+    if current_user
+    @mylog = Post.where(:univ => current_user.univ)
+    end
   end
 
   def three

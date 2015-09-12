@@ -63,13 +63,13 @@
               <% end %>
               	 
               	  <div>
-              	  <p style="text-align:center">대학교 검색</p>
+              	  <p style="text-align:center; color:orange"><big><strong>대학교 검색</strong></big></p>
               	  </div>
   <i class="fa fa-search fa-2x pull-left searchicon"></i><input type="search" class="form-control" id="search" placeholder="Filter items...">
 
 
 
-             <h2>실시간 대학교</h2>
+             <h2 style="text-align:center">대학목록</h2>
 
                 <div class="form-group">
                     <div class="items-collection2">
@@ -77,22 +77,20 @@
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
-                                    <div class="btn-group-vertical" role="group" aria-label="...">
                                             <form action="/home/three" method="POST">  
-                                                  <input type="hidden" name="search" value="연세대학교">
-                                                  <input type="submit" value="연세대학교">
+                                                  <input type="hidden" name="search" value="인하대학교"><p style="opacity:0;">인하대학교</p>
+                                                  <input type="submit"class="form-control" value="인하대학교">
                                               </form>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                          <div class="items2">
                             <div class="info-block block-info clearfix">           
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
                                             <form action="/home/three" method="POST">  
-                                                  <input type="hidden" name="search" value="인하대학교">
-                                                  <input type="submit" value="인하대학교">
+                                                  <input type="hidden" name="search" value="이화여자대학교"><p style="opacity:0;">이화여자대학교</p>
+                                                  <input type="submit"class="form-control" value="이화여자대학교">
                                               </form>
                                 </div>
                             </div>
@@ -101,8 +99,8 @@
                                 <div class="itemcontent">        
                                     <span class="fa fa-car fa-2x"></span>
                                             <form action="/home/three" method="POST">  
-                                                  <input type="hidden" name="search" value="이화여자대학교">
-                                                  <input type="submit" value="이화여자대학교">
+                                                  <input type="hidden" name="search" value="연세대학교"><p style="opacity:0;">연세대학교</p>
+                                                  <input type="submit"class="form-control" value="연세대학교">
                                               </form>
                                 </div>
                             </div>
@@ -240,7 +238,6 @@ $(function () {
       
     </div>
   </div>
-  
 </div>
                      
                        <h3>최근 올라온 미팅 리스트</h3>
@@ -267,11 +264,6 @@ $(function () {
             	</div><!-- /col-md-4 -->
             </a>
         <% end %>      
-        
-        
-
-        
-        
       </div>
               
               
@@ -279,11 +271,5 @@ $(function () {
               
               
               
-              
       
-      
-
-      </footer>
-      <!--footer end-->
-
 <% end %>
