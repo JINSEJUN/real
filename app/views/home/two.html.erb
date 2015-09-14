@@ -313,10 +313,51 @@ $(function () {
   </section>
 </section>
       
+      
+      <section id="main-content" style="height:230px">
+          <section class="wrapper" style="height:250px">
+
+              <div class="row">
+                  <div class="col-lg-12 main-chart" style="height:250;">
+                     <div class="row col-lg-10"><br>
+                       <h3>내가 쓴 게시글 목록</h3>
+                     </div>
+                     
+    	<div class="row">	    
+		<% @mylog2.reverse.each do |x| %>
+		 
+			<a href="/home/reply/<%=x.id%>" method="POST">		
+                <div class="col-lg-4 col-md-4 col-sm-4 mb">
+            		<!-- WHITE PANEL - TOP USER -->
+            		<div class="white-panel pn">
+            			<div class="white-header">
+            				<h5><%= x.univ %> / <%= x.sex %></h5>
+            			</div>
+            			<p><%= x.place %> / <%= x.number %></p>
+            			<p><img src="/assets/<%= x.univ %>.jpg" class="img-circle" width="40"></p>
+            		
+            		</div>
+            		<br>
+            	</div><!-- /col-md-4 -->
+            </a>
+        
+    <% end %>      
+      </div>
+     </div>  
+  </div>
+</div>
+  </section>
+</section>
+      
+      
+      
       </footer>
       <!--footer end-->
 
 <% end %>
+
+
+
 
   <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog modal-lg">

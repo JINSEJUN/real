@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150908135142) do
     t.string   "place"
     t.string   "number"
     t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
     @posts2 = Post.last(3)    
     if current_user
     @mylog = Post.where(:univ => current_user.univ).last(3)
+    @mylog2 = Post.where(:user_id => current_user.id).last(3)
     end
   end
 
@@ -50,6 +51,7 @@ class HomeController < ApplicationController
         post.place = params[:place]
         post.number = params[:number]
         post.content = params[:content]
+        post.user_id = current_user.id
         post.save
      redirect_to '/'
   
