@@ -1,26 +1,53 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+	  <div id="login-page">
+	  	<div class="container">
+	  	
+		      <form class="form-login" action="/users/sign_in" method="POST">
+		        <h2 class="form-login-heading">sign in now</h2>
+		        <div class="login-wrap">
+		            
+		            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <div class="field">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                      </div>
+                    
+                      <div class="field">
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                      </div>
+                    
+                    <br>
+                    
+                      <div class="actions">
+                        <%= f.submit "Log in", class: "btn btn-theme btn-block" %>
+                      </div>
+                <% end %>
+                    
+                  <%= render "devise/shared/links" %>
+		        </div>
+		
+		      </form>	  		  	
+	  	</div>
+	  	
+	  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+    </script>
 
-<%= render "devise/shared/links" %>
+
+
+
+

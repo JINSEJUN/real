@@ -1,9 +1,11 @@
+<div style="text-align:center;">
 <div class="progress progress-striped active">
   <div class="progress-bar" style="width: 45%"></div>
 </div>
-<h1> <%= @post2.univ %> / <%= @post2.place %> / <%= @post2.number %> </h1>
 
-<h2> <%= @post2.post_content %> </h2>
+<h1> <%= @detail.univ %> / <%= @detail.place %> / <%= @detail.number %> </h1>
+
+<h2> <%= @detail.content %> </h2>
 
 
 <!-- 우리가 우선 컨트롤러에 @reply = Reply.find([:id])로 받아준다음에, @reply.email하면 될거같은데 그치? -->
@@ -13,7 +15,7 @@
 
 <% b = 33 %>
 <% a = 1 %>
-<% @post2.replies.each do |x| %>    
+<% @detail.replies.each do |x| %>    
 
     <%= x.email %> : <%= x.content %>
  
@@ -40,7 +42,7 @@
     
     
     <% if current_user.email == x.email %> 
-     <a href="/five/delete2/<%= x.id %>"> 삭제 </a>
+     <a href="/home/delete2/<%= x.id %>"> 삭제 </a>
     
     <% end %>
     <br>
@@ -54,9 +56,9 @@
 <!-- 리플쓴 사람 email찾아 == 현재 로그인한 사람 email(current_user.email) 이면 이미 등록하셨습니다를 넣어주자 -->
 
 
-<% if @post2.replies.count < 3 %>
+<% if @detail.replies.count < 3 %>
 
-    <form action="/five/write_reply" method="POST">
+    <form action="/home/write_reply" method="POST">
         <input type="hidden" name="email" value="<%= current_user.email %>">
         <input type="hidden" name="post_id" value="<%=@detail.id%>">
 
@@ -65,7 +67,7 @@
     </form>
 <% else %>
 
-    <h1> 선착순 댓글이 모두 완료되었습니다. </h1>
+    <h1> 선착순 댓글이 모두 마감되었습니다. </h1>
     
 <% end %>
 
@@ -73,11 +75,12 @@
 <a href="/"> 돌아가기 </a> &nbsp
 
 
-<% if current_user.email == @post2.email %>
+<% if current_user.email == @detail.email %>
 
-<a href="/five/modify2/<%=@post2.id%>"> 수정 </a> &nbsp
-<a href="/five/delete/<%=@post2.id%>"> 삭제 </a>
+<a href="/home/modify2/<%=@detail.id%>"> 수정 </a> &nbsp
+<a href="/home/delete/<%=@detail.id%>"> 삭제 </a>
 
 <% end %>
 
 
+</div>
