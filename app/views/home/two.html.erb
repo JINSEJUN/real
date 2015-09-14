@@ -147,12 +147,18 @@ $(function () {
                   	<div class="row mtbox">
                   	    
 					<% @posts2.reverse.each do |x| %>
-		
-            			<a href="/home/reply/<%=x.id%>" method="POST">		
+		            
+            					
                             <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                  
                         		<!-- WHITE PANEL - TOP USER -->
                         		<div class="white-panel pn">
                         			<div class="white-header">
+                  <form action="/home/reply/<%=x.id%>" method="POST" class="form-inline">
+            			   <input type="hidden" name="search3" value="<%=x.id%>">
+            			   <input type="submit" value="자세히보기" class="form-control">
+            			 </form>
+                  
                         				<h5><%= x.univ %> / <%= x.sex %></h5>
                         			</div>
                         			<p><%= x.place %> / <%= x.number %></p>
@@ -242,7 +248,11 @@ $(function () {
   
 </div>
                      
-                       <h3>최근 올라온 미팅 리스트</h3>
+                       
+                       <form action="/home/three" method="POST" class="form-inline">  
+                           최근 올라온 미팅 리스트
+                          <input type="submit"class="form-control" value="더보기">
+                         </form>
                      </div>
                      
                             
@@ -254,6 +264,11 @@ $(function () {
 		  
       			<a href="/home/reply/<%=x.id%>" method="POST">		
                       <div class="col-lg-4 col-md-4 col-sm-4 mb">
+               
+               
+               
+               
+               
                   		<!-- WHITE PANEL - TOP USER -->
                     		<div class="white-panel pn">
                     			<div class="white-header">
@@ -284,7 +299,12 @@ $(function () {
               <div class="row">
                   <div class="col-lg-12 main-chart" style="height:250;">
                      <div class="row col-lg-10"><br>
-                       <h3>내 학교 목록</h3>
+                       
+                       <form action="/home/three" method="POST" class="form-inline">  
+                           
+                          <input type="hidden" name="search" value="<%=current_user.univ%>">
+                          내 학교 목록<input type="submit"class="form-control" value="더보기">
+                      </form>
                      </div>
                      
     	<div class="row">	    
@@ -320,7 +340,11 @@ $(function () {
               <div class="row">
                   <div class="col-lg-12 main-chart" style="height:250;">
                      <div class="row col-lg-10"><br>
-                       <h3>내가 쓴 게시글 목록</h3>
+                       
+                         <form action="/home/three" method="POST" class="form-inline">  
+                          <input type="hidden" name="search2" value="<%=current_user.id%>">
+                          내가 쓴 게시글 목록<input type="submit"class="form-control" value="더보기">
+                         </form>
                      </div>
                      
     	<div class="row">	    
@@ -470,3 +494,15 @@ $(function () {
           $( "#radio" ).buttonset();
         });
         </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        		

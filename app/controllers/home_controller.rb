@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def two
+  
     @posts2 = Post.last(3)    
     if current_user
     @mylog = Post.where(:univ => current_user.univ).last(3)
@@ -15,7 +16,11 @@ class HomeController < ApplicationController
 
   def three
     @posts2 = Post.all   
-    @result = Post.where(:univ => params[:search])
+    if params[:search2].nil?
+      @result = Post.where(:univ => params[:search])
+    else  
+      @result2 = Post.where(:user_id => params[:search2])
+    end
   end
   
   def goo
@@ -43,6 +48,11 @@ class HomeController < ApplicationController
   
   end
   
+  def test5
+        @detail = Post.find(1) 
+            @posts2 = Post.last(3)   
+  end
+  
   def write
     post = Post.new
         post.email = params[:email]
@@ -54,9 +64,9 @@ class HomeController < ApplicationController
         post.user_id = current_user.id
         post.save
      redirect_to '/'
-  
+
   def reply
-      @detail = Post.find(params[:id]) 
+      @detail = Post.where(:post_id => params[:search3]) 
       
   end
 
