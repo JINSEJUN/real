@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :place
       t.string :number
       t.text :content
+      t.integer :user_id
 
       t.timestamps null: false
     end

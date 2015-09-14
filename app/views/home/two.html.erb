@@ -250,7 +250,8 @@ $(function () {
                     
     	<div class="row">	    
 		<% @posts2.reverse.each do |x| %>
-		  <% if x.id < 4 %> 
+		
+		  
       			<a href="/home/reply/<%=x.id%>" method="POST">		
                       <div class="col-lg-4 col-md-4 col-sm-4 mb">
                   		<!-- WHITE PANEL - TOP USER -->
@@ -265,8 +266,7 @@ $(function () {
             		        <br>
             	        </div><!-- /col-md-4 -->
             </a>
-      <% else %>
-      <% end %>
+      
     <% end %>      
       </div>
      </div>  
@@ -289,7 +289,7 @@ $(function () {
                      
     	<div class="row">	    
 		<% @mylog.reverse.each do |x| %>
-		  <% if x.id < 4 %> 
+		 
 			<a href="/home/reply/<%=x.id%>" method="POST">		
                 <div class="col-lg-4 col-md-4 col-sm-4 mb">
             		<!-- WHITE PANEL - TOP USER -->
@@ -304,8 +304,7 @@ $(function () {
             		<br>
             	</div><!-- /col-md-4 -->
             </a>
-      <% else %>
-      <% end %>    
+        
     <% end %>      
       </div>
      </div>  

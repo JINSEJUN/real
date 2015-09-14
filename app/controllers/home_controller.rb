@@ -6,9 +6,9 @@ class HomeController < ApplicationController
   end
 
   def two
-    @posts2 = Post.all    
+    @posts2 = Post.last(3)    
     if current_user
-    @mylog = Post.where(:univ => current_user.univ)
+    @mylog = Post.where(:univ => current_user.univ).last(3)
     end
   end
 
