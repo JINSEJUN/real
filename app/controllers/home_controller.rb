@@ -28,6 +28,7 @@ class HomeController < ApplicationController
   end
   
   def test1
+    
     @detail = Post.find(params[:id]) 
 
   end
@@ -66,13 +67,16 @@ class HomeController < ApplicationController
 
   def reply
       @detail = Post.find(params[:id]) 
-      
+
   end
 
   
   def write_reply
     # 해당 게시물의 댓글들의 이메일들 중 하나가 내 이메일이랑 일치했을 때 
         my_reply = Reply.new
+        my_reply.univ = params[:univ]
+        my_reply.img = params[:img]
+        my_reply.age = params[:age]
         my_reply.post_id = params[:post_id]
         my_reply.content = params[:myreply]
         my_reply.user_id = current_user.id

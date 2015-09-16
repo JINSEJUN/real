@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 20150908135142) do
   create_table "replies", force: :cascade do |t|
     t.integer  "post_id"
     t.string   "content"
-    t.string   "email"
+    t.string   "univ"
+    t.string   "img"
+    t.string   "age"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
