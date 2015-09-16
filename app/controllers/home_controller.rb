@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def two
-  
+
     @posts2 = Post.last(3)    
     if current_user
     @mylog = Post.where(:univ => current_user.univ).last(3)
@@ -28,7 +28,7 @@ class HomeController < ApplicationController
   end
   
   def test1
-    @posts2 = Post.all
+    @detail = Post.find(params[:id]) 
 
   end
   
@@ -50,14 +50,13 @@ class HomeController < ApplicationController
   
   def test5
         @detail = Post.find(1) 
-            @posts2 = Post.last(3)   
+        
   end
   
   def write
     post = Post.new
-        post.email = params[:email]
-        post.sex = params[:sex]
-        post.univ = params[:univ]
+        post.sex = current_user.sex
+        post.univ = current_user.univ
         post.place = params[:place]
         post.number = params[:number]
         post.content = params[:content]
@@ -66,7 +65,7 @@ class HomeController < ApplicationController
      redirect_to '/'
 
   def reply
-      @detail = Post.where(:post_id => params[:search3]) 
+      @detail = Post.find(params[:id]) 
       
   end
 
@@ -74,7 +73,6 @@ class HomeController < ApplicationController
   def write_reply
     # 해당 게시물의 댓글들의 이메일들 중 하나가 내 이메일이랑 일치했을 때 
         my_reply = Reply.new
-        my_reply.email = params[:email]
         my_reply.post_id = params[:post_id]
         my_reply.content = params[:myreply]
         my_reply.user_id = current_user.id

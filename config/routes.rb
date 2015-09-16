@@ -4,5 +4,9 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }
     root 'home#two'
-  match ":controller(/:action(/:id))", :via => [:post, :get]
+    post 'home/reply/(:id)' => 'home#test1', as: 'reply_view'
+    post 'home/two'
+
+    match ":controller(/:action(/:id))", :via => [:post, :get]
+    
 end
