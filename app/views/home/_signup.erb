@@ -1,0 +1,118 @@
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          <h4 class="modal-title"><img src="/assets/오미팅로고.png" style="width:40px; height:40px;" class="img-circle">&nbsp 미팅새내기가 되어 또래 대학생들과 미팅을 해보세요!</h4>
+        </div>
+        
+        <div class="modal-body">
+          <div class="container form-group row" style="text-align:center;">
+                
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+ 
+<div class="container">  
+  <div class="row">
+ 
+      <div class="col-lg-3 form-group">
+    <%= f.label :email, "대학 E-mail" %><br>
+    <%= f.email_field :email, autofocus: true, :placeholder => "e-mail을 입력해주세요", class: "form-control"%>  
+      </div>
+
+  </div>
+</div>
+
+<div class="container">  
+  <div class="row">
+
+      <div class="col-lg-3 form-group">
+    <%=f.label :password, "Password" %><br>
+    <%= f.password_field :password, autocomplete: "off", :placeholder => "비밀번호(8자리이상)를 입력해주세요", class: "form-control"%>
+      </div>
+
+      <div class="col-lg-3 form-group">
+    <%=f.label :password_confirmation, "Confirm" %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "비밀번호를 확인합니다", class: "form-control"%>
+      </div>  
+
+
+  </div>
+</div>
+
+<div class="container">  
+  <div class="row">
+
+      <div class="col-lg-3 form-group">
+        <%=f.label :univ , "대학교" %>
+        <%= f.select( :univ, options_for_select([['대학교선택','대학교선택'],['연세대학교','연세대학교'],['인하대학교','인하대학교'],['이화여자대학교','이화여자대학교'],['숙명여자대학교','숙명여자대학교']], params[:univ]),{},{class: "form-control"}) %>
+      </div>
+      
+      <div class="col-lg-3 form-group">
+        <%= f.label :Face_img , "학과" %>
+        <%= f.text_field :img, autofocus: true, :placeholder => "학과를 입력해주세요", class: "form-control" %>
+      </div>
+
+
+      <div class="col-lg-3 form-group">
+        <%=f.label :age, "학번" %><br>
+        <%= f.text_field :age, autofocus: true, :placeholder => "학번을 입력해주세요", class: "form-control" %>
+      </div>
+
+  </div>
+</div>
+
+<div class="container">  
+  <div class="row">
+
+      <div class="col-lg-3 form-group">
+        <%=f.label :number , "연락처" %>
+        <%= f.text_field :number, autofocus: true, :placeholder => "연락처를 입력해주세요", class: "form-control" %>
+      </div>
+      
+    <div id="radio">
+      <div class="col-lg-3">
+        <%=f.label :성별 %><br>
+          <%= f.radio_button :sex, "남자", :id=>"radio1", checked:true %>
+          <label for="radio1" class="col-lg-6">남자</label>
+          
+          <%= f.radio_button :sex, "여자", :id=>"radio2" %>
+          <label for="radio2" class="col-lg-6">여자</label>
+      </div>
+    </div>      
+
+
+  </div>
+</div>
+
+
+<div class="container">  
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+       <%= f.submit "가입하기",class:"btn btn-lg btn-success" %>
+    </div>   
+  </div>
+</div>  
+<% end %>
+                    </div>      
+                
+
+          </div>
+        </div>
+
+        
+      </div>
+      
+    </div>
+  </div>
+  
+        <script>
+        $(function() {
+          $( "#radio" ).buttonset();
+        });
+        </script>

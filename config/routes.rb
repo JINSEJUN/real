@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       }
     root 'home#two'
     post 'home/reply/(:id)' => 'home#test1', as: 'reply_view'
-    post 'home/two'
+    post 'home/write_reply', as: 'reply_reply'
 
     match ":controller(/:action(/:id))", :via => [:post, :get]
     

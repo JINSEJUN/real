@@ -1,0 +1,31 @@
+<div class="row">	  
+    <% @posts3.reverse.each do |x| %>   
+        <%= link_to reply_view_path(x.id), method:'post' do %>
+        
+        <% content_tag :div %>
+        
+            <div class="[ col-xs-12 col-sm-4 ] goodd">
+                <div class="[ panel panel-default ] panel-google-plus">
+                    
+                    <div style="font-family: 'Hanna';" class="panel-heading">
+                        <img class="[ img-circle pull-left ]" src="/assets/<%= x.univ %>.jpg" class="img-circle" width="50" alt="Mouse0270" />
+                        <h3><%= x.univ %> 12학번 / <%= x.number %></h3>
+                        <h5><span>게시글 작성일</span> - <span> <%= x.created_at %> </span> </h5>
+                    </div>
+                    <br>
+                    <div style="text-align:center;">
+                        <div style="font-family: 'Hanna';" display="block">
+                            <% if x.replies.count == 3 %>
+                            <p style="color:red;">댓글마감 <%= x.replies.count%>개 > </p>
+                            <% else %>
+                            <p>댓글 <%= x.replies.count%>개 > </p>
+                            <% end %>
+                        </div>
+                        
+                    </div>
+                    <br>
+                </div>
+            </div>
+        <% end %>
+    <% end %> 
+</div>

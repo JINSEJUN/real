@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20150908135142) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "email"
+    t.string   "age"
+    t.string   "img"
     t.string   "sex"
     t.string   "univ"
     t.string   "place"

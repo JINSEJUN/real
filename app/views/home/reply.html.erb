@@ -1,86 +1,125 @@
-<div style="text-align:center;">
-<div class="progress progress-striped active">
-  <div class="progress-bar" style="width: 45%"></div>
-</div>
+<%= render :partial => "home/header" %>      
+<%= render :partial => "home/sidebar" %>
+            
+            
+            
+<% unless current_user.nil? %>
 
-<h1> <%= @detail.univ %> / <%= @detail.place %> / <%= @detail.number %> </h1>
+<section id="main-content" style="height:230px">
+          <section class="wrapper" style="height:250px">
 
-<h2> <%= @detail.content %> </h2>
-
-
-<!-- 우리가 우선 컨트롤러에 @reply = Reply.find([:id])로 받아준다음에, @reply.email하면 될거같은데 그치? -->
-
-
-
-
-<% b = 33 %>
-<% a = 1 %>
-<% @detail.replies.each do |x| %>    
-
-    <%= x.email %> : <%= x.content %>
- 
-    <% if current_user.email == @detail.email %>
-         <button id="<%=a%>">번호 보기</button>
-        <p id="<%=b%>" style="display:none;"><%= x.user.number %></p>
-
-    <% end %>
-    
-    <script>
-
+              <div class="row">
+                  <div class="col-lg-12 main-chart" style="height:250;">
+             <div class="row col-lg-10"><br>
+            
+        <div style="text-align:center;">
+        
+                    <div class="container-fluid">
+                        <div class="row">
+                        <div class="col-lg-2"></div>
+                             <div class="col-lg-10 col-xs-12 col-sm-6 ">
+                             
+                                <div style="font-family: 'Hanna';" class="[ panel panel-default ] panel-google-plus">
+                                    
+                                    <div class="panel-heading">
+                                        <img class="[ img-circle pull-left ]" src="/assets/<%= @detail.univ %>.jpg" class="img-circle" width="50" alt="Mouse0270" />
+                                        <h3><%= @detail.univ %> 12 / <%= @detail.sex %></h3>
+                                        <h5><span>게시글 작성일</span> - <span> <%= @detail.created_at %> </span> </h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>참여인원: <%= @detail.number %> / 만남장소(희망): <%= @detail.place %> </p>
+                                    </div>
+                                    
+        
+        
+        
+        
+                                    <br>
+        <% b = 33 %>
+        <% a = 1 %>
+        <% @detail.replies.each do |x| %>    
+        
+            <span class="label label-primary">댓글</span> <%= x.user.univ %> <%= x.user.img %> <%= x.user.age %> : <%= x.content %>
+         
+            <% if current_user.email == @detail.email %>
+                 <button id="<%=a%>">번호 보기</button>
+                <p id="<%=b%>" style="display:none;"><%= x.user.number %></p>
+        
+            <% end %>
+            
+            <script>
+        
+                
+        
+            $(document).ready(function(){
+        
+               $('#'+'<%=a%>').click(function(){
+                   $('#'+'<%=b%>').fadeIn('slow');
+                   $('#'+'<%=a%>').fadeOut('slow');
+               })
+              
+            });
+            
+            </script>
+            
+            
+            <% if current_user.email == @detail.email %> 
+             <a href="/home/delete2/<%= x.id %>"> 삭제 </a>
+            
+            <% end %>
+            <br>
+        <%a = a + 1;%>
+        <%b = b  + 1; %>
+        <% end %>                            
+        
+        
+        
+        
+        
+        <!-- post_id > 4면 밑에부분이 안보이도록만 해주면서 마감되었습니다를 넣어주면 될거같애 -->
+        
+        <!-- 리플쓴 사람 email찾아 == 현재 로그인한 사람 email(current_user.email) 이면 이미 등록하셨습니다를 넣어주자 -->
+        
+        
+        <% if @detail.replies.count < 3 %>
         
 
-    $(document).ready(function(){
-
-       $('#'+'<%=a%>').click(function(){
-           $('#'+'<%=b%>').fadeIn('slow');
-           $('#'+'<%=a%>').fadeOut('slow');
-       })
-      
-    });
-    
-    </script>
-    
-    
-    <% if current_user.email == x.email %> 
-     <a href="/home/delete2/<%= x.id %>"> 삭제 </a>
-    
-    <% end %>
-    <br>
-<%a = a + 1;%>
-<%b = b  + 1; %>
-<% end %>
-
-
-<!-- post_id > 4면 밑에부분이 안보이도록만 해주면서 마감되었습니다를 넣어주면 될거같애 -->
-
-<!-- 리플쓴 사람 email찾아 == 현재 로그인한 사람 email(current_user.email) 이면 이미 등록하셨습니다를 넣어주자 -->
-
-
-<% if @detail.replies.count < 3 %>
-
-    <form action="/home/write_reply" method="POST">
-        <input type="hidden" name="email" value="<%= current_user.email %>">
-        <input type="hidden" name="post_id" value="<%=@detail.id%>">
-
-        <input type="text" name="myreply">
-        <input type="submit" value="리플달기">
-    </form>
-<% else %>
-
-    <h1> 선착순 댓글이 모두 마감되었습니다. </h1>
-    
-<% end %>
-
-
-<a href="/"> 돌아가기 </a> &nbsp
-
-
-<% if current_user.email == @detail.email %>
-
-<a href="/home/modify2/<%=@detail.id%>"> 수정 </a> &nbsp
-<a href="/home/delete/<%=@detail.id%>"> 삭제 </a>
+            <form action="/home/write_reply" method="POST" class="form-inline">
+                <input type="hidden" name="univ" value="<%=@detail.univ%>">
+                <input type="hidden" name="age" value="<%=@detail.age%>">
+                <input type="hidden" name="img" value="<%=@detail.img%>">
+                <input type="hidden" name="post_id" value="<%=@detail.id%>">
+                <br>
+                <input type="text" name="myreply" class="form-control"  placeholder="자신을 소개해주세요^^">
+                <input type="submit" value="리플달기" class="form-control">
+              
+            </form>
+        <% else %>
+        
+            <h1> 선착순 댓글이 모두 마감되었습니다. </h1>
+            
+        <% end %>
+        
+        <br>
+        <form action="/home/two" method="POST">
+            <input type="submit" value="돌아가기" class="form-control btn-warning">
+        </form>
+        
+        <% if current_user.id == @detail.id %>
+        
+        <a href="/home/modify2/<%=@detail.id%>"> 수정 </a> &nbsp
+        <a href="/home/delete/<%=@detail.id%>"> 삭제 </a>
+        
+        <% end %>
+        
+        
+        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+        <!-- 우리가 우선 컨트롤러에 @reply = Reply.find([:id])로 받아준다음에, @reply.email하면 될거같은데 그치? -->
 
 <% end %>
-
-
-</div>

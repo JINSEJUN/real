@@ -1,0 +1,45 @@
+  <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="/home/two" class="logo"><img src="/assets/오미팅로고.png" style="width:40px; height:40px;" class="img-circle">&nbsp <b>미팅새내기</b></a>
+            
+            <!--logo end-->
+            
+            <% if current_user.nil? %>    
+            <div class="top-menu row pull-right" style="margin-top:0px; text-align:right">
+
+
+<form class="new_user navbar-form form-group" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="nmI9PI3D3rqX4ir864hJDqEU2RXIabk5ZuzTEIl1+J0eRWL0wrUTL9q8qfVUWfgpSZ/x9gf9RcFPwo0bjhGGJg==">
+                
+    <input class="form-control" autofocus="autofocus" type="email"  name="user[email]" id="user_email" preholder="email">
+
+
+
+    <input class="form-control" autocomplete="off" type="password" name="user[password]" id="user_password">
+
+      <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+      <label for="user_remember_me" class="from-control">Remember me</label>
+
+
+    <button type="submit" name="commit" class="btn btn-info" value="Log in"> Sign in </button>
+</form>          
+            	
+            	<button type="button" class="btn-default" data-toggle="modal" data-target="#myModal2">혹시 처음이신가요?</button>
+            	
+
+                
+
+            <% else %>
+            
+            	<div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/users/sign_out">Logout</a></li>
+            	</ul>
+            <% end %>	
+            </div>
+            </div>
+        </header>
+      <!--header end-->

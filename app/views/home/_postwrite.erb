@@ -1,14 +1,3 @@
-<%= render :partial => "home/header" %>      
-<%= render :partial => "home/sidebar" %>
-
-<% unless current_user.nil? %>
-
-<section id="main-content" style="height:230px">
-          <section class="wrapper" style="height:250px">
-
-              <div class="row">
-                  <div class="col-lg-12 main-chart" style="height:250;">
-                     <br>  
 <div class="container" style="text-align:center">
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">만남적기</button>
@@ -30,9 +19,7 @@
                 <div class="col-lg-6">
                       
                 <form action="/home/write" method="POST">
-                    <input type="hidden" class="form-control" value="<%= current_user.email %>" name="email" readonly> <br>
-                    <input type="hidden" class="form-control" value="<%= current_user.sex %>" name="sex" readonly> <br>
-                    <input type="hidden" class="form-control" value="<%= current_user.univ %>" name="univ" readonly> <br>
+                    <input type="hidden" name="email"
                     <input type="text" class="form-control" name="place" placeholder="만날 장소를 적어주세요(ex) 연세대 입구)"><br>
                     <input type="text" name="number" class="form-control" placeholder="몇명이 참여하는지 적어주세요(ex) 3명)"><br>
                     <textarea rows="4" cols="50" class="form-control" name="content"> </textarea><br>
@@ -53,36 +40,5 @@
       
     </div>
   </div>
+  
 </div>
-                     
-                       
-                     
-                            
-                    	
-    <% if params[:search2].nil? && params[:search].nil? %>
-                    <h3>최신순</h3>
-        <%= render :partial => "home/postsquare" %>
-                     
-    <br><br><br>  
-    <% elsif params[:search2].nil? %>
-      <h3>내 학교 목록</h3>
-                     </div>
-          	 <%= render :partial => "home/mylog" %>
-    <br><br><br>
-    
-      
-        <% elsif params[:search].nil? %>
-    <h3>내가 쓴 게시글 목록</h3>
-                     </div>
-          	          	 <%= render :partial => "home/mylog2" %>
-    <br><br><br>
-    
-        
-    <% end %>          
-              
-              
-              
-              
-              
-      
-<% end %>
