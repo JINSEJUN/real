@@ -50,8 +50,16 @@ class HomeController < ApplicationController
   end
   
   def test5
-        @detail = Post.find(1) 
-        
+      
+      
+  end
+  
+  def write_univ
+      univ = Univ.new
+      univ.univ = params[:univ]
+      univ.save
+      redirect_to(:back)
+    
   end
   
   def write
