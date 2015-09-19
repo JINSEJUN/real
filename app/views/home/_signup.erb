@@ -121,6 +121,14 @@
         <script>
         $(function() {
           $( "#radio" ).buttonset();
+          
+          $('#myModal2').keypress(function(event){
+        
+            if (event.keyCode == 10 || event.keyCode == 13) 
+                event.preventDefault();
+        
+          });
+
         });
 
         $(function(){
@@ -133,3 +141,5 @@
                  
         })
         </script>
+        
+        
