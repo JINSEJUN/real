@@ -23,11 +23,12 @@
                                     
                                     <div class="panel-heading">
                                         <img class="[ img-circle pull-left ]" src="/assets/<%= @detail.univ %>.jpg" class="img-circle" width="50" alt="Mouse0270" />
-                                        <h3><%= @detail.univ %> 12 / <%= @detail.sex %></h3>
+                                        <h3><%= @detail.univ %> <%= @detail.age %> / <%= @detail.sex %></h3>
                                         <h5><span>게시글 작성일</span> - <span> <%= @detail.created_at %> </span> </h5>
                                     </div>
                                     <div class="panel-body">
                                         <p>참여인원: <%= @detail.number %> / 만남장소(희망): <%= @detail.place %> </p>
+                                        <p> <%= @detail.content %> </p>
                                     </div>
                                     
         
