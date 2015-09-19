@@ -10,7 +10,7 @@
                     <div style="font-family: 'Hanna';" class="panel-heading">
                         <img class="[ img-circle pull-left ]" src="/assets/<%= x.univ %>.jpg" class="img-circle" width="50" alt="Mouse0270" />
                         <h3><%= x.univ %> 12학번 / <%= x.number %></h3>
-                        <h5><span>게시글 작성일</span> - <span> <%= x.created_at %> </span> </h5>
+                        <h5><span>게시글 작성일</span> - <span> <%= x.created_at.in_time_zone("Seoul").strftime("%F %H:%M") %> </span> </h5>
                     </div>
                     <br>
                     <div style="text-align:center;">
